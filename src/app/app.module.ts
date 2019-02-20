@@ -11,6 +11,8 @@ import { LocationsComponent } from './locations/locations.component';
 import { AdminComponent } from './admin/admin.component';
 import { SubsidiaryComponent } from './subsidiary/subsidiary.component';
 import { GeneralViewComponent } from './general-view/general-view.component';
+import { PhischelComponent } from './phischel/phischel.component';
+import { BombaticaComponent } from './bombatica/bombatica.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { GeneralViewComponent } from './general-view/general-view.component';
     LocationsComponent,
     AdminComponent,
     SubsidiaryComponent,
-    GeneralViewComponent
+    GeneralViewComponent,
+    PhischelComponent,
+    BombaticaComponent
   ],
   imports: [
     BrowserModule,
