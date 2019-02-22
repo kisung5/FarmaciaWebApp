@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Clientirl } from '../clientirl';
+
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
