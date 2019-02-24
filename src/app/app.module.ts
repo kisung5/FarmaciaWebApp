@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PhischelModule } from './phischel/phischel.module';
@@ -23,6 +25,8 @@ import { LocationsComponent } from './locations/locations.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule, //<----Ng Model lives here.
     AppRoutingModule,
     PhischelModule,
     BombaticaModule

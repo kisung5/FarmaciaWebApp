@@ -1,7 +1,7 @@
 
 export class Drug {
     name: string;
-    pharma: sring;
+    pharma: string;
     prescript: boolean;
     quantity: number;
 }
