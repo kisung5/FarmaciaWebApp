@@ -1,3 +1,72 @@
-<p>
-  medicines works!
-</p>
+<div style="text-align: center">
+
+  <!-- Editable table -->
+<div class="card">
+  <style>
+    span {
+      display: block;
+    }
+  </style>
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Medicamentos</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+
+      <span class="table-add float-right mb-3 mr-2">
+        <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="add()">Añadir</button>
+      </span>
+
+      <table class="table table-dark table-hover table-bordered table-responsive-md table-striped text-center">
+        <thead class="thead-light">
+          <tr>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Casa Farmaceutica</th>
+            <th class="text-center">Requiere prescripcion</th>
+            <th class="text-center">Cantidad</th>
+            <th class="text-center"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let drug of drugs; let id = index">
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(id, 'idd', $event)" (blur)="updateList(id, 'idd', $event)">
+                {{drug.name}}
+              </span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)">
+                {{drug.pharma}}
+              </span>
+            </td>
+            <td>
+              <span class="booleanText" contenteditable="true" (keyup)="changeValue(id, 'lastname', $event)" (blur)="updateList(id, 'lastname', $event)">
+                {{drug.prescript}}
+                <!--<script>
+                  if(drug.prescript) {
+                    $('span.booleanText').text('Si');
+                  } else {
+                    $('span.booleanText').text('No');
+                  }
+                </script>-->
+              </span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(id, 'address', $event)" (blur)="updateList(id, 'address', $event)">
+                {{drug.quantity}}
+              </span>
+            </td>
+            <td>
+              <span>
+                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">X</button>
+              </span>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+</div>
+

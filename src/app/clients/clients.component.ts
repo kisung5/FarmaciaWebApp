@@ -42,5 +42,4 @@ export class ClientsComponent implements OnInit {
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
   }
-
 }

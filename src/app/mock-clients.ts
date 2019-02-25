@@ -1,8 +1,8 @@
 import { Clientirl } from './clientirl';
 
 export const CLIENTS: Clientirl[] = [
-    { id: 1, name: 'Mr. Nice', lastname: 'Bombon', idd: 12345, address: 'Costa Rica',
-        birthday: '13/11/99', contact: 32154, status: 'Not feeling well, Mr. Kraps.'},
+    { id: 1, name: 'Mr. Nice', lastname: null, idd: 12345, address: '100m este de la escuela Quircot, San Nicolas, Cartago centro.',
+        birthday: '13/11/99', contact: 32154, status: 'Necesito varios medicamentos para mi depresion y mi esquisofrnia, help me :('},
     { id: 2, name: 'Narco', lastname: 'Bombon', idd: 12345, address: 'Costa Rica',
         birthday: '13/11/99', contact: 32154, status: 'Not feeling well, Mr. Kraps.'},
     { id: 3, name: 'Bombasto', lastname: 'Bombon', idd: 12345, address: 'Costa Rica',

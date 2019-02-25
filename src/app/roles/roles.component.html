@@ -1,3 +1,32 @@
-<p>
-  roles works!
-</p>
+<div style="text-align: center">
+  <style>
+    span {
+      display: block;
+    }
+  </style>
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Roles</h3>
+  <div class="card-body">
+    <ul class="roles">
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero"
+          (click)="delete(hero)">X</button>
+      </li>
+    </ul>
+
+    <div>
+      <label>Nombre:
+        <input #roleName />
+      </label>
+      <label>Descripcion:
+        <input #roleDest />
+      </label>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button (click)="add(heroName.value); heroName.value=''">
+        Añadir
+      </button>
+    </div>
+  </div>
+</div>
