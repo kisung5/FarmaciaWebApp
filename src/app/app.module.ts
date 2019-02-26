@@ -13,6 +13,7 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { MedicinesComponent } from './medicines/medicines.component';
 import { RolesComponent } from './roles/roles.component';
 import { LocationsComponent } from './locations/locations.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LocationsComponent } from './locations/locations.component';
     DoctorsComponent,
     MedicinesComponent,
     RolesComponent,
-    LocationsComponent
+    LocationsComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

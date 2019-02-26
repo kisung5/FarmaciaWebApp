@@ -1,4 +1,7 @@
 <div style="text-align: center">
+
+  <!-- Editable table -->
+<div class="card">
   <style>
     span {
       display: block;
@@ -6,27 +9,43 @@
   </style>
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Roles</h3>
   <div class="card-body">
-    <ul class="roles">
-      <li *ngFor="let hero of heroes">
-        <a routerLink="/detail/{{hero.id}}">
-          <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </a>
-        <button class="delete" title="delete hero"
-          (click)="delete(hero)">X</button>
-      </li>
-    </ul>
+    <div id="table" class="table-editable">
 
-    <div>
-      <label>Nombre:
-        <input #roleName />
-      </label>
-      <label>Descripcion:
-        <input #roleDest />
-      </label>
-      <!-- (click) passes input value to add() and then clears the input -->
-      <button (click)="add(heroName.value); heroName.value=''">
-        Añadir
-      </button>
+      <span class="table-add float-right mb-3 mr-2">
+        <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="add()">Añadir</button>
+      </span>
+
+      <table class="table table-dark table-hover table-bordered table-responsive-md table-striped text-center">
+        <thead class="thead-light">
+          <tr>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Descripcion</th>
+            <th class="text-center"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let role of roles; let id = index">
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(id, 'idd', $event)" (blur)="updateList(id, 'idd', $event)">
+                {{role.name}}
+              </span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(id, 'status', $event)" (blur)="updateList(id, 'status', $event)">
+                {{role.about}}
+              </span>
+            </td>
+            <td>
+              <span>
+                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">X</button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
+<!-- Editable table -->
 </div>

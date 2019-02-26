@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Role } from '../role';
+import { ROLES } from '../mock-roles';
+
 @Component({
   selector: 'app-roles',
   templateUrl: './roles.component.html',
@@ -7,22 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RolesComponent implements OnInit {
 
+  roles = ROLES;
+  editField: string;
+  awaitingPersonList: Array<any> = [ ];
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });
+  updateList(id: number, property: string, event: any) {
+    const editField = event.target.textContent;
+    this.roles[id][property] = editField;
   }
 
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
+  remove(id: any) {
+    this.awaitingPersonList.push(this.roles[id]);
+    this.roles.splice(id, 1);
+  }
+
+  add() {
+    if (this.awaitingPersonList.length > 0) {
+      const person = this.awaitingPersonList[0];
+      this.roles.push(person);
+      this.awaitingPersonList.splice(0, 1);
+    }
+  }
+
+  changeValue(id: number, property: string, event: any) {
+    this.editField = event.target.textContent;
   }
 }
