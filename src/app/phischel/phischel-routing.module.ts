@@ -10,11 +10,12 @@ import { DoctorsComponent } from '../doctors/doctors.component';
 import { MedicinesComponent } from '../medicines/medicines.component';
 import { LocationsComponent } from '../locations/locations.component';
 import { RolesComponent } from '../roles/roles.component';
+import { OrdersComponent } from '../orders/orders.component';
 
 const routes: Routes = [
   { path: 'phischel', component: PhischelComponent,
     children: [
-        { path: 'admin', component: AdminComponent ,
+      { path: 'admin', component: AdminComponent ,
         children: [
           { path: 'clientes', component: ClientsComponent },
           { path: 'doctores', component: DoctorsComponent },
@@ -23,9 +24,12 @@ const routes: Routes = [
           { path: 'roles', component: RolesComponent }
         ]
       },
-        { path: 'sucursal', component: SubsidiaryComponent },
-        { path: 'home', component: GeneralViewComponent },
-        { path: '', redirectTo: '/phischel/home', pathMatch: 'full' }
+      { path: 'sucursal', component: SubsidiaryComponent,
+        children:[
+          { path: 'pedidos', component: OrdersComponent}
+        ]},
+      { path: 'home', component: GeneralViewComponent },
+      { path: '', redirectTo: '/phischel/home', pathMatch: 'full' }
     ]
   }
 ];

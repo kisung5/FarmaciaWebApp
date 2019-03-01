@@ -1,18 +1,39 @@
-<!--<div style="text-align: center">
+<div style="text-align: center">
   <style>
     span {
       display: block;
     }
+    .list-group {
+      display: inline-block;
+    }
   </style>
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Roles</h3>
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Pedidos</h3>
   <div class="card-body">
-    <ul class="roles">
-      <li *ngFor="let hero of heroes">
-        <a routerLink="/detail/{{hero.id}}">
-          <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action flex-column align-items-start" 
+      *ngFor="let order of orders">
+        <a> <!--routerLink="/detail/{{hero.id}}"-->
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+              {{order.name}}
+            </h5> 
+            <small class="text-muted">
+              {{order.date}}
+            </small>
+          </div>
+          <p class="mb-1">
+            Detalles.
+          </p>
+          <small class="mb-1">
+            Estado: {{order.status}}
+          </small>
+          <div>
+            <button class="delete" title="delete hero">
+                <!--(click)="delete(hero)"-->
+                X
+            </button>
+          </div>
         </a>
-        <button class="delete" title="delete hero"
-          (click)="delete(hero)">X</button>
       </li>
     </ul>
 
@@ -22,11 +43,11 @@
       </label>
       <label>Descripcion:
         <input #roleDest />
-      </label>-->
+      </label>
       <!-- (click) passes input value to add() and then clears the input -->
-<!--      <button (click)="add(heroName.value); heroName.value=''">
+      <button> <!--(click)="add(heroName.value); heroName.value=''">-->
         Añadir
       </button>
     </div>
   </div>
-</div>-->
+</div>
