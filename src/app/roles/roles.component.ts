@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Role } from '../role';
-import { ROLES } from '../mock-roles';
+import { Role } from '../model/role';
+import { ROLES } from '../model/mock-roles';
 
 @Component({
   selector: 'app-roles',

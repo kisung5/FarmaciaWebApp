@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Order } from '../order';
-import { ORDERS } from '../mock-orders';
+import { Order } from '../model/order';
+import { ORDERS } from '../model/mock-orders';
 
 @Component({
   selector: 'app-orders',

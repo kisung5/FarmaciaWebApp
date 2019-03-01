@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Clientirl } from '../clientirl';
-import { CLIENTS } from '../mock-clients';
+import { Clientirl } from '../model/clientirl';
+import { CLIENTS } from '../model/mock-clients';
 
 @Component({
   selector: 'app-clients',

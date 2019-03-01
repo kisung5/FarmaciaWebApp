@@ -6,13 +6,15 @@ import { PhischelComponent } from './phischel.component';
 import { AdminComponent } from './admin/admin.component';
 import { SubsidiaryComponent } from './subsidiary/subsidiary.component';
 import { GeneralViewComponent } from './general-view/general-view.component';
+import { LoginComponent } from './admin/login/login.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
     SubsidiaryComponent,
     GeneralViewComponent,
-    PhischelComponent
+    PhischelComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

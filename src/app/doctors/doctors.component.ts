@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Doctor } from '../doctor';
-import { DOCTORS } from '../mock-doctors';
+import { Doctor } from '../model/doctor';
+import { DOCTORS } from '../model/mock-doctors';
 
 @Component({
   selector: 'app-doctors',

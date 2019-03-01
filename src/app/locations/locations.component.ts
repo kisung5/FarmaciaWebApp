@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Location } from '../location';
-import { LOCATIONS } from '../mock-locations';
+import { Location } from '../model/location';
+import { LOCATIONS } from '../model/mock-locations';
 
 @Component({
   selector: 'app-locations',
