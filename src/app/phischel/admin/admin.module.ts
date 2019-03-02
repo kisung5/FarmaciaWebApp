@@ -5,11 +5,13 @@ import {AdminRoutingModule } from './admin-routing.module';
 
 import { AdminComponent } from './admin.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

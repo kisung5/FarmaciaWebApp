@@ -1,36 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-//import {ApiadminService} from '../apiadmin.service';
-//import {CustomerService} from '../../../customer.service';
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css']
-// })
-// export class LoginComponent {
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
 
-//   email = 'admin';
-//   password = 'admin';
+export class LoginComponent {
 
-//   constructor(private api: ApiadminService, private customer: CustomerService, private router: Router) {
-//   }
+    password = 'admin';
+    user = 'admin'
 
-//   tryLogin() {
-//     this.api.login(
-//       this.email,
-//       this.password
-//     )
-//       .subscribe(
-//         r => {
-//           if (r.token) {
-//             this.customer.setToken(r.token);
-//             this.router.navigateByUrl('/phischel/admin/clientes');
-//           }
-//         },
-//         r => {
-//           alert(r.error.error);
-//         });
-//   }
+    message: string;
 
-// }
+    constructor(public authService: AuthService, public router: Router) {
+        this.setMessage();
+    }
+
+    setMessage() {
+        this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+    }
+
+    login() {
+        this.message = 'Trying to log in ...';
+
+        this.authService.login().subscribe(() => {
+            this.setMessage();
+            if (this.authService.isLoggedIn) {
+                // Get the redirect URL from our auth service
+                // If no redirect has been set, use the default
+                let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/phischel/admin';
+
+                // Redirect the user
+                this.router.navigate([redirect]);
+            }
+        });
+    }
+
+    logout() {
+        this.authService.logout();
+        this.setMessage();
+    }
+}

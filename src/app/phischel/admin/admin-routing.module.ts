@@ -7,17 +7,21 @@ import { MedicinesComponent } from '../../medicines/medicines.component';
 import { LocationsComponent } from '../../locations/locations.component';
 import { RolesComponent } from '../../roles/roles.component';
 import { AdminComponent } from './admin.component';
-// import { LoginComponent } from '../admin/login/login.component';
 import { AuthGuard } from '../admin/auth/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: 'phischel/admin', component: AdminComponent, canActivate: [AuthGuard], 
+  { path: 'phischel/admin', component: AdminComponent,
   children:[
-    { path: 'clientes', component: ClientsComponent /* , canActivate: [AuthGuard] */},
-    { path: 'doctores', component: DoctorsComponent /* , canActivate: [AuthGuard] */},
-    { path: 'medicinas', component: MedicinesComponent /* , canActivate: [AuthGuard] */},
-    { path: 'sucursales', component: LocationsComponent /* , canActivate: [AuthGuard] */},
-    { path: 'roles', component: RolesComponent /* , canActivate: [AuthGuard] */}
+    { path: 'login', component: LoginComponent },
+    { path: '', component: HomeComponent, canActivate: [AuthGuard], children: [
+      { path: 'clientes', component: ClientsComponent },
+      { path: 'doctores', component: DoctorsComponent },
+      { path: 'medicinas', component: MedicinesComponent },
+      { path: 'sucursales', component: LocationsComponent },
+      { path: 'roles', component: RolesComponent }
+    ]}
   ]}
 ]
 
