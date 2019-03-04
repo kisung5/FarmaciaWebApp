@@ -1,0 +1,18 @@
+<div class="row">
+
+  <div class="col-lg-4 col-md-6 mb-4" *ngFor="let drug of drugs">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">
+          <a routerLink="/phischel/home">
+            {{drug.name}}
+          </a>
+        </h4>
+        <h5>
+          {{drug.pharma}}
+        </h5>
+        <p class="card-text">Medicamento de uso domestico.</p>
+      </div>
+    </div>
+  </div>
+<!-- /.row -->

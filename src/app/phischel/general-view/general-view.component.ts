@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Drug } from '../../model/drug';
-import { DRUGS } from '../../model/mock-drugs';
-
 @Component({
   selector: 'app-general-view',
   templateUrl: './general-view.component.html',
@@ -10,11 +7,17 @@ import { DRUGS } from '../../model/mock-drugs';
 })
 export class GeneralViewComponent implements OnInit {
 
-  drugs = DRUGS;
+  loggedIn: boolean;
 
-  constructor() { }
+  constructor() {
+    this.loggedIn = false;
+  }
 
   ngOnInit() {
+  }
+
+  logout(): void {
+    this.loggedIn = false;
   }
 
 }

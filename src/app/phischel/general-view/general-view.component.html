@@ -12,11 +12,17 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+          <li class="nav-item" *ngIf="!loggedIn">
+            <a class="nav-link" routerLink="/phischel/home/login">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Registro</a>
+          <li class="nav-item" *ngIf="!loggedIn">
+            <a class="nav-link" routerLink="/phischel/home/register">Registrar</a>
+          </li>
+          <li class="nav-item" *ngIf="loggedIn">
+            <a class="nav-link" routerLink="/phischel/home/user">Cuenta</a>
+          </li>
+          <li class="nav-item" *ngIf="loggedIn">
+            <a class="nav-link" (click)="logout()">Log out</a>
           </li>
         </ul>
       </div>
@@ -31,9 +37,8 @@
       <div class="col-lg-3">
 
         <div class="list-group">
-          <a href="/phischel/home" class="list-group-item">Productos</a>
-          <a href="#" class="list-group-item">Receta</a>
-          <a href="#" class="list-group-item">Pedido</a>
+          <a routerLink="/phischel/home" class="list-group-item">Productos</a>
+          <a routerLink="/phischel/home/recipie" class="list-group-item" *ngIf="loggedIn">Receta/Pedido</a>
         </div>
 
       </div>
@@ -41,25 +46,7 @@
 
       <div class="col-lg-9">
 
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 mb-4" *ngFor="let drug of drugs">
-            <div class="card h-100">
-              <!--<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">
-                    {{drug.name}}
-                  </a>
-                </h4>
-                <h5>
-                  {{drug.pharma}}
-                </h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-            </div>
-          </div>
-        <!-- /.row -->
+        <router-outlet></router-outlet>
 
       </div>
       <!-- /.col-lg-9 -->
