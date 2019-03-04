@@ -12,7 +12,6 @@ export class MedicinesComponent implements OnInit {
 
   drugs = DRUGS;
   editField: string;
-  awaitingPersonList: Array<any> = [ ];
 
   constructor() { }
 
@@ -25,16 +24,13 @@ export class MedicinesComponent implements OnInit {
   }
 
   remove(id: any) {
-    this.awaitingPersonList.push(this.drugs[id]);
     this.drugs.splice(id, 1);
   }
 
   add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.drugs.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
+    const person: Drug = {id: this.drugs.length + 1, name: '',
+      pharma: '', prescript: 'no', quantity: 0};
+    this.drugs.push(person);
   }
 
   changeValue(id: number, property: string, event: any) {

@@ -14,8 +14,6 @@ export class LocationsComponent implements OnInit {
 
   editField: string;
 
-  awaitingPersonList: Array<any> = [ ];
-
   constructor() { }
 
   ngOnInit() {
@@ -27,16 +25,13 @@ export class LocationsComponent implements OnInit {
   }
 
   remove(id: any) {
-    this.awaitingPersonList.push(this.locations[id]);
     this.locations.splice(id, 1);
   }
 
   add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.locations.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
+    const person: Location = {id: this.locations.length + 1, name: '',
+      about: '', address: '', chief: ''};
+    this.locations.push(person);
   }
 
   changeValue(id: number, property: string, event: any) {

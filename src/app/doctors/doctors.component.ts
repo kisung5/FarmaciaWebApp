@@ -14,8 +14,6 @@ export class DoctorsComponent implements OnInit {
 
   editField: string;
 
-  awaitingPersonList: Array<any> = [ ];
-
   constructor() { }
 
   ngOnInit() {
@@ -27,16 +25,13 @@ export class DoctorsComponent implements OnInit {
   }
 
   remove(id: any) {
-    this.awaitingPersonList.push(this.doctors[id]);
     this.doctors.splice(id, 1);
   }
 
   add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.doctors.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
+    const person: Doctor = {id: this.doctors.length + 1, idd: 0, docnum: 0, name: '',
+      lastname: '', address: '', birthday: ''};
+    this.doctors.push(person);
   }
 
   changeValue(id: number, property: string, event: any) {

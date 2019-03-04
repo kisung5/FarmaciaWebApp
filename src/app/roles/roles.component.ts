@@ -12,7 +12,6 @@ export class RolesComponent implements OnInit {
 
   roles = ROLES;
   editField: string;
-  awaitingPersonList: Array<any> = [ ];
 
   constructor() { }
 
@@ -25,16 +24,13 @@ export class RolesComponent implements OnInit {
   }
 
   remove(id: any) {
-    this.awaitingPersonList.push(this.roles[id]);
     this.roles.splice(id, 1);
   }
 
   add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.roles.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
+    const person: Role = {id: this.roles.length + 1, name: '',
+      about: ''};
+    this.roles.push(person);
   }
 
   changeValue(id: number, property: string, event: any) {

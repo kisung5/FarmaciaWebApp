@@ -14,8 +14,6 @@ export class ClientsComponent implements OnInit {
 
   editField: string;
 
-  awaitingPersonList: Array<any> = [ ];
-
   constructor() { }
 
   ngOnInit() {
@@ -27,16 +25,13 @@ export class ClientsComponent implements OnInit {
   }
 
   remove(id: any) {
-    this.awaitingPersonList.push(this.clients[id]);
     this.clients.splice(id, 1);
   }
 
   add() {
-    if (this.awaitingPersonList.length > 0) {
-      const person = this.awaitingPersonList[0];
-      this.clients.push(person);
-      this.awaitingPersonList.splice(0, 1);
-    }
+    const person: Clientirl = {id: this.clients.length + 1, idd: 0, name: '',
+      lastname: '', address: '', birthday: '', contact: 0, status: ''};
+    this.clients.push(person);
   }
 
   changeValue(id: number, property: string, event: any) {

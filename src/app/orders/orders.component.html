@@ -1,53 +1,136 @@
-<div style="text-align: center">
-  <style>
-    span {
-      display: block;
-    }
-    .list-group {
-      display: inline-block;
-    }
-  </style>
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Pedidos</h3>
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-action flex-column align-items-start" 
-      *ngFor="let order of orders">
-        <a> <!--routerLink="/detail/{{hero.id}}"-->
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">
-              {{order.name}}
-            </h5> 
-            <small class="text-muted">
-              {{order.date}}
-            </small>
-          </div>
-          <p class="mb-1">
-            Detalles.
-          </p>
-          <small class="mb-1">
-            Estado: {{order.status}}
-          </small>
-          <div>
-            <button class="delete" title="delete hero">
-                <!--(click)="delete(hero)"-->
-                X
-            </button>
-          </div>
-        </a>
-      </li>
-    </ul>
 
-    <div>
-      <label>Nombre:
-        <input #roleName />
-      </label>
-      <label>Descripcion:
-        <input #roleDest />
-      </label>
-      <!-- (click) passes input value to add() and then clears the input -->
-      <button> <!--(click)="add(heroName.value); heroName.value=''">-->
-        Añadir
-      </button>
+<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Pedidos</h3>
+<div class="card-body row">
+  <div class="col-lg-3">
+    <div class="container border border-primary rounded" >
+      <h4 class="card-title">
+        Nuevo
+      </h4>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start" 
+        *ngFor="let norder of newOrders" >
+          <a> 
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">
+                {{norder.name.name}}
+                {{norder.name.lastname}}
+              </h5> 
+              <small class="text-muted">
+                {{norder.date}}
+              </small>
+            </div>
+            <ul class="list-group">
+              <li *ngFor="let drug of norder.content">
+                {{drug.name}}
+              </li>
+            </ul>
+            <div>
+              <button class="delete" title="delete order" (click)="moveNext(norder,'n')">
+                ->
+              </button>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="container border border-success rounded" >
+      <h4 class="card-title">
+        Preparado
+      </h4>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start" 
+        *ngFor="let porder of preOrders" >
+          <a> <!--routerLink="/detail/{{hero.id}}"-->
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">
+                {{porder.name.name}}
+                {{porder.name.lastname}}
+              </h5> 
+              <small class="text-muted">
+                {{porder.date}}
+              </small>
+            </div>
+            <ul class="list-group">
+              <li *ngFor="let drug of porder.content">
+                {{drug.name}}
+              </li>
+            </ul>
+            <div>
+              <button class="delete" title="delete hero" (click)="moveNext(porder,'p')">
+                  ->
+              </button>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="container border border-danger rounded" >
+      <h4 class="card-title">
+        Facturado
+      </h4>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start" 
+        *ngFor="let forder of facOrders" >
+          <a> <!--routerLink="/detail/{{hero.id}}"-->
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">
+                {{forder.name.name}}
+                {{forder.name.lastname}}
+              </h5> 
+              <small class="text-muted">
+                {{forder.date}}
+              </small>
+            </div>
+            <ul class="list-group">
+              <li *ngFor="let drug of forder.content">
+                {{drug.name}}
+              </li>
+            </ul>
+            <div>
+              <button class="delete" title="delete hero" (click)="moveNext(forder,'f')">
+                ->
+              </button>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="container border border-dark rounded" >
+      <h4 class="card-title">
+        Retirado
+      </h4>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start" 
+        *ngFor="let rorder of retOrders" >
+          <a> <!--routerLink="/detail/{{hero.id}}"-->
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">
+                {{rorder.name.name}}
+                {{rorder.name.lastname}}
+              </h5> 
+              <small class="text-muted">
+                {{rorder.date}}
+              </small>
+            </div>
+            <ul class="list-group">
+              <li *ngFor="let drug of rorder.content">
+                {{drug.name}}
+              </li>
+            </ul>
+            <div>
+              <button class="delete" title="delete hero" (click)="moveNext(rorder,'r')">
+                X
+              </button>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
