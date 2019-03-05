@@ -11,10 +11,17 @@ import { DRUGS } from '../../model/mock-drugs';
 export class GeneralViewComponent implements OnInit {
 
   drugs = DRUGS;
+  loggedIn: boolean;
 
-  constructor() { }
+  constructor() {
+    this.loggedIn = false;
+  }
 
   ngOnInit() {
+  }
+
+  logout(): void {
+    this.loggedIn = false;
   }
 
 }

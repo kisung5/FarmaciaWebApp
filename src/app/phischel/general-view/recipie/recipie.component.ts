@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DRUGS } from '../../../model/mock-drugs';
 
 @Component({
   selector: 'app-recipie',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipie.component.css']
 })
 export class RecipieComponent implements OnInit {
+
+  drugs = DRUGS;
 
   constructor() { }
 

@@ -4,32 +4,20 @@
       <h4 class="card-title">
         Receta
       </h4>
-      <!-- <ul class="list-group">
-        <li class="list-group-item list-group-item-action flex-column align-items-start" 
-        *ngFor="let norder of newOrders" >
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start" >
           <a> 
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">
-                {{norder.name.name}}
-                {{norder.name.lastname}}
+                {{drugs[0].name}}
               </h5> 
               <small class="text-muted">
-                {{norder.date}}
+                {{drugs[0].pharma}}
               </small>
-            </div>
-            <ul class="list-group">
-              <li *ngFor="let drug of norder.content">
-                {{drug.name}}
-              </li>
-            </ul>
-            <div>
-              <button class="delete" title="delete order" (click)="moveNext(norder,'n')">
-                ->
-              </button>
             </div>
           </a>
         </li>
-      </ul> -->
+      </ul>
     </div>
   </div>
   <div class="col-lg-6">
@@ -37,35 +25,24 @@
       <h4 class="card-title">
         Pedido
       </h4>
-      <!-- <ul class="list-group">
-        <li class="list-group-item list-group-item-action flex-column align-items-start" 
-        *ngFor="let porder of preOrders" >
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start" >
           <a> 
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">
-                {{porder.name.name}}
-                {{porder.name.lastname}}
+                {{drugs[1].name}}
               </h5> 
               <small class="text-muted">
-                {{porder.date}}
+                {{drugs[1].pharma}}
               </small>
-            </div>
-            <ul class="list-group">
-              <li *ngFor="let drug of porder.content">
-                {{drug.name}}
-              </li>
-            </ul>
-            <div>
-              <button class="delete" title="delete hero" (click)="moveNext(porder,'p')">
-                  ->
-              </button>
             </div>
           </a>
         </li>
-      </ul> -->
+      </ul>
       <button class="btn-dark">
         Realizar pedido.
       </button>
     </div>
   </div>
+
 
