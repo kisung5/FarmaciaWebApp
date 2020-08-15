@@ -133,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "FarmaciaWebApp"
+  "defaultProject": "FarmaciaWebApp",
+  "cli": {
+    "analytics": "3ff6947f-5546-4e5b-812d-fbee32fe19fe"
+  }
 }
